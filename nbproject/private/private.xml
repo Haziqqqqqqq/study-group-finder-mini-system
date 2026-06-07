@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/WebBro/src/java/dao/UserDAO.java</file>
+            <file>file:/C:/WebBro/web/header.jsp</file>
+            <file>file:/C:/WebBro/web/login.jsp</file>
+            <file>file:/C:/WebBro/src/java/util/DBConnection.java</file>
+            <file>file:/C:/WebBro/web/WEB-INF/web.xml</file>
+            <file>file:/C:/WebBro/src/java/controller/AdminServlet.java</file>
+            <file>file:/C:/WebBro/web/groups_find.jsp</file>
+            <file>file:/C:/WebBro/src/java/controller/AuthServlet.java</file>
+            <file>file:/C:/WebBro/src/java/model/User.java</file>
+            <file>file:/C:/WebBro/web/group_detail.jsp</file>
+            <file>file:/C:/WebBro/web/admin_users.jsp</file>
+            <file>file:/C:/WebBro/web/dashboard.jsp</file>
+            <file>file:/C:/WebBro/src/java/dao/MembershipDAO.java</file>
+            <file>file:/C:/WebBro/web/group_create.jsp</file>
+            <file>file:/C:/WebBro/web/admin_groups.jsp</file>
+            <file>file:/C:/WebBro/web/my_groups.jsp</file>
+        </group>
+    </open-files>
+</project-private>
