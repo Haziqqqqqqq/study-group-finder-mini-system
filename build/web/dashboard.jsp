@@ -15,28 +15,7 @@
     List<StudySession> upcomingSessions = (List<StudySession>) request.getAttribute("upcomingSessions");
     List<Notification> notifications = (List<Notification>) request.getAttribute("notifications");
     
-    // Calculate Average Group Rating
-    double totalRating = 0;
-    int ratedGroupsCount = 0;
-    
-    if (createdGroups != null) {
-        for (StudyGroup g : createdGroups) {
-            if (g.getAvgRating() > 0) {
-                totalRating += g.getAvgRating();
-                ratedGroupsCount++;
-            }
-        }
-    }
-    if (joinedGroups != null) {
-        for (StudyGroup g : joinedGroups) {
-            if (g.getAvgRating() > 0) {
-                totalRating += g.getAvgRating();
-                ratedGroupsCount++;
-            }
-        }
-    }
-    double avgRating = ratedGroupsCount > 0 ? (totalRating / ratedGroupsCount) : 0.0;
-%>
+    // Removed avg rating calculation%>
 
     <!-- Welcome Banner -->
     <div class="bg-primary text-white rounded-4 p-4 p-md-5 mb-4" style="box-shadow: 0 4px 6px -1px rgba(37,99,235,0.2);">
@@ -72,14 +51,14 @@
             </div>
         </div>
         
-        <!-- Avg Group Rating -->
+        <!-- Groups Led -->
         <div class="simple-card p-4 d-flex align-items-center">
             <div class="rounded p-3 me-4 icon-container-purple">
-                <i class="bi bi-graph-up-arrow fs-4"></i>
+                <i class="bi bi-star-fill fs-4"></i>
             </div>
             <div>
-                <div class="text-muted small fw-medium mb-1">Avg. Group Rating</div>
-                <h4 class="fw-bold mb-0 text-dark"><%= String.format("%.1f", avgRating) %></h4>
+                <div class="text-muted small fw-medium mb-1">Groups Led</div>
+                <h4 class="fw-bold mb-0 text-dark"><%= createdGroups != null ? createdGroups.size() : 0 %></h4>
             </div>
         </div>
     </div>
