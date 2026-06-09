@@ -357,8 +357,15 @@
                         <input type="hidden" name="action" value="submit">
                         <input type="hidden" name="group_id" value="<%= group.getGroupId() %>">
                         <div class="mb-3 d-flex align-items-center">
-                            <label class="form-label text-dark fw-medium small mb-0 me-3">Rating (1-5):</label>
-                            <input type="number" name="rating" class="form-control form-control-sm" style="width: 80px;" min="1" max="5" value="5" required>
+                            <label class="form-label text-dark fw-medium small mb-0 me-3">Rating:</label>
+                            <div id="starRating" class="d-flex" style="cursor: pointer;">
+                                <i class="bi bi-star-fill text-warning fs-5 me-1" data-val="1"></i>
+                                <i class="bi bi-star-fill text-warning fs-5 me-1" data-val="2"></i>
+                                <i class="bi bi-star-fill text-warning fs-5 me-1" data-val="3"></i>
+                                <i class="bi bi-star-fill text-warning fs-5 me-1" data-val="4"></i>
+                                <i class="bi bi-star-fill text-warning fs-5 me-1" data-val="5"></i>
+                            </div>
+                            <input type="hidden" name="rating" id="ratingValue" value="5">
                         </div>
                         <textarea class="form-control bg-white border-0 mb-3" name="review_text" rows="2" placeholder="Write your feedback..." required></textarea>
                         <button type="submit" class="btn btn-primary px-4 fw-semibold btn-sm">Submit Review</button>
@@ -422,6 +429,48 @@
             }
         }
     })();
+
+    // Star Rating Logic
+    const stars = document.querySelectorAll('#starRating i');
+    const ratingInput = document.getElementById('ratingValue');
+    
+    if (stars.length > 0) {
+        document.getElementById('starRating').setAttribute('data-selected', '5');
+        
+        stars.forEach(star => {
+            star.addEventListener('mouseover', function() {
+                const val = this.getAttribute('data-val');
+                stars.forEach(s => {
+                    if (s.getAttribute('data-val') <= val) {
+                        s.classList.remove('bi-star');
+                        s.classList.add('bi-star-fill');
+                    } else {
+                        s.classList.remove('bi-star-fill');
+                        s.classList.add('bi-star');
+                    }
+                });
+            });
+            
+            star.addEventListener('click', function() {
+                const val = this.getAttribute('data-val');
+                ratingInput.value = val;
+                document.getElementById('starRating').setAttribute('data-selected', val);
+            });
+        });
+        
+        document.getElementById('starRating').addEventListener('mouseout', function() {
+            const selectedVal = this.getAttribute('data-selected');
+            stars.forEach(s => {
+                if (s.getAttribute('data-val') <= selectedVal) {
+                    s.classList.remove('bi-star');
+                    s.classList.add('bi-star-fill');
+                } else {
+                    s.classList.remove('bi-star-fill');
+                    s.classList.add('bi-star');
+                }
+            });
+        });
+    }
 </script>
 
 <%@ include file="footer.jsp" %>
